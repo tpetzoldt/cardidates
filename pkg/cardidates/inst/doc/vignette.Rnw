@@ -1,0 +1,482 @@
+\documentclass[11pt]{Z}
+
+\SweaveOpts{engine=R,eps=FALSE}
+
+
+%% need no \usepackage{Sweave.sty}
+\DeclareGraphicsExtensions{.pdf, .eps, .png}
+
+\usepackage{amsmath,amssymb,graphicx,color,fancyvrb}
+\usepackage{textcomp}%has degree celsius
+
+\renewcommand{\textfraction}{0.2}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\topfraction}{0.7}
+\renewcommand{\floatpagefraction}{0.8}
+
+%\newcommand{\pkg}[1]{\texttt[#1]}
+%\newcommand{\code}[1]{\texttt[#1]}
+%\newcommand{\proglang}[1]{\textbf[#1]}
+\newcommand{\link}[1]{#1}              % dummy
+
+\author{Thomas Petzoldt, René Sachse and Susanne Rolinski}
+\title{Quickstart Manual for Package \pkg{cardidates}}
+%\VignetteIndexEntry{cardidates Quickstart Manual}
+
+
+
+\Abstract{ The \pkg{cardidates} package provides methods for fitting
+  four resp. six parametric Weibull functions to environmental
+  data. Heuristics are applied for finding initial parameters in the
+  six parametric case. As a second step, the fitted functions can be
+  used to identify maximum, beginning and end of peaks by using a
+  quantile-like approach.
+
+} \Keywords{ecological time series, peak fitting, cardinal date,
+  reproducible research}
+
+\SweaveOpts{engine=R, eps=FALSE, fig=FALSE, echo=TRUE, include=FALSE, prefix.string=tp}
+
+\begin{document}
+
+This manual describes the \proglang{R} package \textbf{cardidates},
+version \Sexpr{installed.packages()["cardidates", 3]}, November 19,
+2007.
+
+\section{Introduction}
+
+Phenology and seasonal succession in aquatic, and of course also
+terrestrial, ecosystems are strongly dependent on physical factors. In
+order to promote investigations into this coupling, objective and
+reliable methods of characterising annual time series are important.
+
+The \pkg{cardidates} package provides methods for curve fitting
+``peaks'' of environmental data and approaches for an ``objective''
+characterisation of what we call ``cardinal dates'', i.e. beginning,
+time of maximum and time of end of an identified peak.  Objectivity
+means that it is not necessarily important to get the ``true'' values
+(what is true?) for one particular time series but to get reproducible
+results independently of the person who performs the analysis.
+
+The proposed methods were developed within the AQUASHIFT research
+program and used to determine the beginning, maximum and end of the
+spring mass development of phytoplankton in different lakes and water
+reservoirs.  These time points, that we call ``cardinal dates'', can
+be analysed for temporal trends and relationships to climate
+variables.
+
+The complete methodology is described in \citet{Rolinski2007}.  Until
+now we implemented only the most reliable approach using
+Weibull-functions (Method B in the article); other functions may
+follow.
+
+The methodology may also be useful for other ecological time series
+(e.g. bacteria, protozoa, insects or small mammals). Please don't
+hesitate to contact the authors if you feel that this package should
+be generalized to other processes.
+
+\section{Pre-requisites}
+
+You need the following software:
+
+\begin{itemize}
+\item a current version of the statistical data analysis system,
+  \proglang{R}, \citep{Rcore2007} that can be downloaded from
+  \url{http://www.r-project.org}.
+\item the \pkg{cardidates} package, which is available as source code
+  and as Windows, Macintosh and Linux ``binary''. Currently we do not
+  yet intend to upload \pkg{cardidates} to CRAN, the comprehensive
+  \proglang{R} archive network, however, it is available from the
+  \proglang{R} package development server
+  R-Forge\footnote{\url{http://r-forge.r-project.org/projects/cardidates/}}
+  of one of the authors to obtain the most recent version.
+\item \pkg{cardidates} requires two contributed packages named
+  \pkg{boot} and \pkg{pastecs} \citep{boot-package,pastecs-package}
+  which can be installed directly from the internet. This can be done
+  either using the menu (e.g. on Windows) or with the following
+  command:
+\begin{Sinput}
+> install.packages(c("boot", "pastecs"))
+\end{Sinput}
+\end{itemize}
+
+Following documentation and help examples of the package should be
+sufficient for applying the functions. It is not necessary to be a
+full-experienced \proglang{R} programmer. If you however want to
+crunch large data sets automatically a little bit of \proglang{R}
+knowledge is of course helpful.
+
+\section{Using the package}
+
+Identification of cardinal dates is carried out in the following way:
+
+\begin{enumerate}
+\item Read your data into \proglang{R},
+\item Identify the time window of the desired peak if not yet done
+  before,
+\item Fit a Weibull-type function with four or six parameters (we
+  recommend the six parameteric as it is much more flexible),
+\item Extract cardinal dates with functions \code{CDW} or \code{CDWa}
+  or use the default \code{summary} method.
+\item Results can be visualized with standard \proglang{R} functions
+  or an object-specific \code{plot} method.
+\end{enumerate}
+
+This process can be done either step by step for single peaks as
+described in section \ref{s:stepbystep} or automatically for a series
+of peaks using the \texttt{metaCDW} function described in section
+\ref{s:metacdw}.  The package is licensed under the GNU Public License
+2.0 or above (\url{http://www.gnu.org/copyleft/gpl.html}).  It can be
+used free of charge within the AQUASHIFT community and by everyone
+else who is interested.
+
+
+\subsection{A step-by-step example}\label{s:stepbystep}
+
+We start with a simple example of artificially generated data:
+
+<<>>=
+x <- c(0, 19, 38, 57, 76, 95, 114, 133, 152, 170, 190, 208, 227, 246, 265,
+      284, 303, 322, 341, 360)
+y <- c(0.9, 1, 1.2, 1, 2, 4, 7, 3, 4, 2, 1.1, 1, 1, 1, 0.9, 1.2, 1,
+       0.8, 1.1, 1)
+@
+
+We can visualize these data with \code{plot}:
+
+<<>>=
+plot(x, y)
+@
+
+The data set contains only one peak so the first step, the detection
+of the time window (section \ref{s:peakwindow}) can be omitted and we
+go directly to the most essential step of fitting a Weibull
+function\footnote{This step is sometimes a little bit crucial or
+  time-consuming. Susanne did her best to provide good and robust
+  heuristics but please don't give up if you encounter error
+  messages. You may read section \ref{s:moreopt} and try to provide
+  your own user-defined initial values or contact the package authors
+  with your particular data set.}:
+
+<<>>=
+library("cardidates")
+res <- fitweibull6(x, y)
+@
+
+The results are now stored in \code{res} which belongs to the
+\code{cardiFit} class. You may now inspect the results directly
+entering \code{res} at the command line but you can also go directly
+to the next step and enter:
+
+<<>>=
+summary(res)
+@
+
+Function \texttt{fitweibull6} uses extensive heuristics to derive
+initial parameters for the optimization. It is intended to work with
+data which are defined over an interval between 0 and 365,
+e.g. environmental data and especially for plankton blooms. Please
+note that the function does internal an transformation:
+
+\[
+y_{rel} = y_i / y_{max}
+\]
+
+Additional data points are inserted to stabilize the algorithm between
+original measurements by linear interpolation with time step = 1
+before curve fitting if the number of original data points is too low
+(currently $n < 35$).  You can set \texttt{linint = 0} to switch
+interpolation off.
+
+An automatic plotting method is also as simple as entering:
+
+<<fig=TRUE, include=TRUE, width=8, height=6>>=
+plot(res)
+@
+
+showing cardinal dates based on the symmetric default method and the
+two-sided 5\% quantile. That's it.
+
+\subsection{Fully automatic peak detection with metaCDW}\label{s:metacdw}
+
+Function \texttt{metaCDW} is a top-level function which calls
+\texttt{peakwindows}, \texttt{fitweibull} and \texttt{CDW} for a
+series of data sets and returns a table (a data frame) of all results.
+
+To use it you must supply your data in a defined format, a table
+(technically an \proglang{R} data frame) with four columns:
+\textbf{sample} (description of the individual time series such as
+year, water body, or any other code, should be numeric or factor),
+\textbf{doy} (Julian day of the year), \code{y} (the dependent
+variable, e.g. phytoplankton biovolume) and \code{flag} (of type
+boolean indicating whether the data point should be included in
+analysis). The last column (flag) can be used to mask individual data
+points. It may contain either FALSE or 0 (zero) to disable
+respectively TRUE or 1 (one) to enable data points. If flag is
+omitted, all data sets are enabled. In the following we use an example
+data set provided by the package:
+
+<<plot=FALSE>>=
+data(carditest)
+@
+
+You may inspect this data set as usual, e.g. simply by typing
+\texttt{carditest} or, optionally, by plotting y versus time (see
+example on help page).  Now we invoke the analysis with an important
+optional parameter \texttt{xstart} determining the offset of the main
+peak, e.g.  a value of 55 to neglect winter peaks before the spring
+mass development.  Setting the flag of the respective data manually to
+FALSE in the optional column provides another, more individual
+mechanism for this purpose:
+
+<<plot=FALSE>>=
+tt <- metaCDW(carditest, xstart=55)
+@
+
+and inspect the results:
+
+<<plot=FALSE>>=
+summary(tt)
+@
+
+The \texttt{summary} method shows the most important results of the
+analysis, i.e. the cardinal dates (\texttt{tMid} \dots \texttt{yEnd},
+the parameters of the Weibull function (\texttt{p1} \dots \texttt{p6})
+and the coefficient of determination (\texttt{r2}) of the fit. No
+additional steps are required if your data set is well-behaved, but as
+ever it's wise to check and visualize both, data and results. For
+plotting all data sets on one figure you may use:
+
+<<fig=FALSE>>=
+plot(as.numeric(carditest$sample) * 365 + carditest$doy, carditest$y, type="b")
+@
+
+To plot the complete results of a (not too large) data set use:
+
+\begin{Sinput}
+plot(tt, carditest)
+\end{Sinput}
+
+An optional \texttt{layout} argument can be supplied to control the
+layout of the matrix of figures, e.g. to one column and three rows:
+
+%% for the text
+\begin{Sinput}
+plot(tt, carditest, layout=c(1, 3))
+\end{Sinput}
+
+%% for the figure
+%% lattice requires a print when used in Sweave
+<<fig=TRUE, include=TRUE, echo=FALSE, width=8, height=8>>=
+print(plot(tt, carditest, layout=c(1, 3)))
+@
+
+In addtion to this, you can also write graphics of all fitted peaks
+into one pdf file:
+
+\begin{Sinput}
+> pdf("d:/myfile.pdf")
+> lapply(tt$weibullfits, plot)
+> dev.off()
+\end{Sinput}
+% $
+
+where \texttt{lapply} (list apply) is an \proglang{R} function that
+applies a function (in our case an object specific plotting method) to
+all list elements of \verb#tt$weibullfits#.
+
+The result of the analysis can be written to an arbitrary textfile
+supplied as optional file argument to \texttt{summary}, e.g.:
+
+\begin{Scode}
+> summary(tt, file="d:/results.txt", sep="\t", quote=FALSE, row.names=FALSE)
+\end{Scode}
+
+or, to write the results directly to the windows clipboard in a format
+compatible to spreadsheets and with German comma:
+
+\begin{Scode}
+> summary(tt, file="clipboard", sep="\t", dec=",", quote=FALSE, row.names=FALSE)
+\end{Scode}
+
+\section{More options}\label{s:moreopt}
+
+\subsection{How can I enter my own data?}
+
+Entering own data is one of the most flexible things in \proglang{R}
+that can read many data formats including databases and spreadsheets.
+The possibilities are described in detail in the R Data Import/Export
+manual that comes with all versions of \proglang{R} and is also
+available online
+(\url{http://cran.r-project.org/doc/manuals/R-data.html}).  Here is
+one of the most simple methods:
+
+\begin{enumerate}
+\item Copy your data as usual into your favorite spreadsheet program
+  in two columns with title head \textbf{X} and \textbf{Y}, without
+  empty lines above and without measurement units below the \textbf{X,
+    Y} header or with three colums \textbf{sample}, \textbf{doy},
+  \textbf{y} in the \texttt{metaCDW} format.
+\item Save this table as \textbf{text only} to your harddisk and
+  remember where you have stored this file.
+\item Now in \proglang{R} enter the lines below and your data should
+  be in \proglang{R} as a table or so-called data frame:
+\end{enumerate}
+
+\begin{Sinput}
+> dat <- read.table(file.choose(), header=TRUE, sep="\t")
+\end{Sinput}
+
+Please note that some languages use ``,'' as decimal separator.  In
+such cases use:
+
+\begin{Sinput}
+> dat <- read.table(file.choose(), header=TRUE, sep="\t", dec=",")
+\end{Sinput}
+
+The data stored in \code{dat} can be passed directly to
+\texttt{fitweibull} if it has exactly two columns:
+
+\begin{Sinput}
+> fitweibull6(dat)
+\end{Sinput}
+
+or to \texttt{metaCDW} if it has three or four columns named according
+to the above mentioned specification:
+
+\begin{Sinput}
+> metaCDW(dat)
+\end{Sinput}
+
+Note that there are many other ways to enter, transform or manipulate
+your data, please see the online manuals for details.
+
+
+\subsection{Determining the time window of one  peak}\label{s:peakwindow}
+
+Sometimes it is not trivial to decide which data have to be included
+and which data are to be omitted before fitting the Weibull function,
+especially when we have several successive peaks. Instead of cutting
+the data manually the function \code{peakwindow}, which is based on an
+algorithm of \citet{Petzoldt1996} can be used. This has not only the
+advantage of an automatic procedure, it is also more objective than
+the manual method and therefore better reproducible. If you use the
+\texttt{metaCDW} function then \texttt{peakwindow} is automatically
+invoked.
+
+Let's have the following artificial data set generated by a randomly
+disturbed periodic function:
+
+<<>>=
+set.seed(537)
+x <- seq(1, 360, length=50)
+y <- exp(cos(x/20)) + 0.3 + rnorm(x, sd = 0.3)
+@
+
+We now apply the \code{peakwindow} function to the x and y data where
+\code{xstart = 70} is an optional value to indicate the time of ice
+out after which the phytoplankton spring mass development is expected
+to begin:
+
+<<>>=
+peaks <- peakwindow(x, y, xstart=60)
+@
+
+Again, an object specific plot method can be used to visualize the
+results. All identified are peaks labelled with consecutive numbers
+amd the spring is peak marked with a red line:
+
+<<fig=TRUE,include=TRUE, width=8, height=6>>=
+plot(peaks)
+@
+
+The \texttt{peakwindow} function has some additional control
+parameters which, for example, determine how sub-peaks are
+handled. Among them \texttt{minpeak} is probably the most
+important. Its default (0.382) is derived from the Golden ratio,
+\citet{Petzoldt1996} used a value of 1/3 and \citet{Rolinski2007}
+found a value of 0.455 to be optimal for the sum of diatoms of
+Saidenbach Reservoir, so you should play with this parameter if you
+think that the isolation of sub-peaks seems to be sub-optimal.
+
+
+\subsection{Weibull curve fitting}
+
+Fitting the Weibull function should be done using only relevant data,
+i.e. omitting unnecessary data before and after the peak either
+manually or using \texttt{peakwindow} which returns the indices of the
+relevant data as list element (\verb#peaks$smd.indices#).  We can
+store the contents of this element to another variable (\verb#smd#)
+and then use this \texttt{smd}-subset to fit the Weibull function:
+
+<<>>=
+smd   <- peaks$smd.indices
+res <- fitweibull6(x[smd], y[smd])
+summary(res)
+@
+
+<<fig=TRUE, include=TRUE, width=8, height=6>>=
+plot(res, ylim = c(0, 4), xlim = c(0, 360))
+points(x, y, pch = "+", type = "b")
+@
+
+Cardinal date detection as described above is done with, as we think,
+useful defaults and heuristics. However, it is focussed on year
+courses (x between 0 to 365) and the characteristics of phytoplankton
+time series. The package contains several additional possibilities,
+e.g. the use of the four parametric Weibull function.  Examples of
+typical shape for \code{fweibull4} and \code{fweibull6} are outlined
+on the help pages of these functions. Please note the graphical
+meaning of the function parameters $p_1 \dots p_6$ for both
+functions. You can supply your own initial parameters in case of
+convergence problems and you can re-fit the curve with the measured
+data only avoiding the additional linear interpolation in case of
+small data sets.
+
+\subsection{Extraction of results}
+
+Functions \code{CDW} and \code {CDWa} can be used to extract cardinal
+dates. The meaning of the different versions and options is described
+in the help pages. Option \code{symmetric = FALSE} forces the use of
+an asymmetric algorithm as shown in Figure 2B in \citet{Rolinski2007}:
+
+<<>>=
+CDW(res, symmetric = FALSE)
+@
+
+or with other quantiles:
+
+<<>>=
+CDW(res, quantile = 0.01, symmetric = FALSE)
+@
+
+You can also manually inspect, print or evaluate \code{res} or the
+return value of \code{CDW}:
+
+\begin{Sinput}
+> str(res)
+> res
+> cdw <- CDW(res)
+> str(cdw)
+> cdw
+\end{Sinput}
+
+More examples are provided on the help pages.
+
+
+\section{Further information}
+
+General information about \proglang{R} including original and
+user-supplied packages and references to the most important books can
+be found on \url{http://www.r-project.org}. Please cite and
+\textbf{read} our paper when using this package \citep{Rolinski2007}.
+Feel free to contact us if you have any questions, problems or
+suggestions.  We have several ideas in our own minds and it depends on
+user feedback if and when they will be included.
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliography{cardidates}
+
+
+\end{document}
