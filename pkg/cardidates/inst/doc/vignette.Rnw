@@ -54,9 +54,9 @@ The \pkg{cardidates} package provides methods for curve fitting
 ``peaks'' of environmental data and approaches for an ``objective''
 characterisation of what we call ``cardinal dates'', i.e. beginning,
 time of maximum and time of end of an identified peak.  Objectivity
-means that it is not necessarily important to get the ``true'' values
-(what is true?) for one particular time series but to get reproducible
-results independently of the person who performs the analysis.
+means that it is not necessarily important to get good estimates for
+one particular time series but to get reproducible results
+independently of the person who performs the analysis.
 
 The proposed methods were developed within the AQUASHIFT research
 program and used to determine the beginning, maximum and end of the

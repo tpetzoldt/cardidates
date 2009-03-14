@@ -79,12 +79,20 @@ and end of peaks by using a quantile-like approach.</p>
 hesitate to contact the authors if you feel that this package should
 be generalized to other processes.</p>
 
+<ul>
+
+  <li><a
+  href="http://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/*checkout*/pkg/cardidates/inst/doc/vignette.pdf?root=cardidates">
+  Short Manual</p></li>
+
+</ul>
+
 <h3>References</h3>
 
-Rolinski, S., Horn, H., Petzoldt, T., & Paul,
-     L. (2007): Identification of cardinal dates in phytoplankton time
-     series to enable the analysis of long-term trends. Oecologia
-     <strong>153</strong>, 997 - 1008.
+  Rolinski, S., Horn, H., Petzoldt, T., & Paul, L. (2007):
+  Identification of cardinal dates in phytoplankton time series to
+  enable the analysis of long-term trends. Oecologia
+  <strong>153</strong>, 997 - 1008.
 
 <h3>Sourcecode and Downloads</h3>
 
