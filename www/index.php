@@ -83,7 +83,7 @@ be generalized to other processes.</p>
 
   <li><a
   href="http://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/*checkout*/pkg/cardidates/inst/doc/vignette.pdf?root=cardidates">
-  Short Manual</p></li>
+  Short Manual</a></p></li>
 
 </ul>
 
