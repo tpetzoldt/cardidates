@@ -43,9 +43,59 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-<p> No content added. </p>
+<h3>Description</h3>
 
-<p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
+<p>Phenology and seasonal succession in aquatic, and of course also
+terrestrial, ecosystems are strongly dependent on physical factors. In
+order to promote investigations into this coupling, objective and
+reliable methods of characterising annual time series are important.
+The cardidates package provides methods for fitting "peaks" of
+environmental data and approaches for an "objective" characterisation
+of what we call "cardinal dates", i.e. beginning, time of maximum and
+time of end of an identified peak. Objectivity means that it is not
+necessarily important to get good estimates for one particular time
+series but to get reproducible results independently of the person who
+performs the analysis.</p>
+
+<p>The proposed methods were developed within the <a
+href="http://www.ifm-geomar.de/?id=1985&L=1">AQUASHIFT</a> research
+program and used to determine the beginning, maximum and end of the
+spring mass development of phytoplankton in different lakes and water
+reservoirs. These time points, that we call "cardinal dates", can be
+analysed for temporal trends and relationships to climate variables.
+The complete methodology is described in Rolinski, Horn, Petzoldt, and
+Paul (2007). Until now we implemented only the most reliable approach
+using Weibull-functions (Method B in the article); other functions may
+follow.</p>
+
+<p>This method consists of fitting four- or sixparametric Weibull
+functions to environmental time series. Heuristics are applied for
+finding initial parameters in the six parametric case. As a second
+step, the fitted functions can be used to identify maximum, beginning
+and end of peaks by using a quantile-like approach.</p>
+
+<p>The methodology may also be useful for other ecological time series
+(e.g. bacteria, protozoa, insects or small mammals). Please don't
+hesitate to contact the authors if you feel that this package should
+be generalized to other processes.</p>
+
+<h3>References</h3>
+
+Rolinski, S., Horn, H., Petzoldt, T., & Paul,
+     L. (2007): Identification of cardinal dates in phytoplankton time
+     series to enable the analysis of long-term trends. Oecologia
+     <strong>153</strong>, 997 - 1008.
+
+<h3>Sourcecode and Downloads</h3>
+
+<p> You can download compiled packages for different operation systems
+(Linux, Mac, Wiondows) or inspect sourcecode and documentation online
+before downloading. It is even possible to register as an additional
+developer and to contribute to the software</p>
+
+<p>Details can be found on the <a href="http://<?php echo $domain;
+?>/projects/<?php echo $group_name; ?>/"><strong>project summary
+page</strong></a>. </p>
 
 </body>
 </html>
