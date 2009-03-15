@@ -74,18 +74,14 @@ finding initial parameters in the six parametric case. As a second
 step, the fitted functions can be used to identify maximum, beginning
 and end of peaks by using a quantile-like approach.</p>
 
+<p>Examples about the intention and use of the package can be found in the
+<a href="http://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/*checkout*/pkg/cardidates/inst/doc/vignette.pdf?root=cardidates">
+  Quickstart Manual</a>.
+
 <p>The methodology may also be useful for other ecological time series
 (e.g. bacteria, protozoa, insects or small mammals). Please don't
 hesitate to contact the authors if you feel that this package should
 be generalized to other processes.</p>
-
-<ul>
-
-  <li><a
-  href="http://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/*checkout*/pkg/cardidates/inst/doc/vignette.pdf?root=cardidates">
-  Short Manual</a></p></li>
-
-</ul>
 
 <h3>References</h3>
 
