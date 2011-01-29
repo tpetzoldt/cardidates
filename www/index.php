@@ -68,7 +68,7 @@ Paul (2007). Until now we implemented only the most reliable approach
 using Weibull-functions (Method B in the article); other functions may
 follow.</p>
 
-<p>This method consists of fitting four- or sixparametric Weibull
+<p>This method consists of fitting four- resp. six parametric Weibull
 functions to environmental time series. Heuristics are applied for
 finding initial parameters in the six parametric case. As a second
 step, the fitted functions can be used to identify maximum, beginning
@@ -94,8 +94,7 @@ be generalized to other processes.</p>
 
 <p> You can download compiled packages for different operation systems
 (Linux, Mac, Wiondows) or inspect sourcecode and documentation online
-before downloading. It is even possible to register as an additional
-developer and to contribute to the software</p>
+before downloading.</p>
 
 <p>Details can be found on the <a href="http://<?php echo $domain;
 ?>/projects/<?php echo $group_name; ?>/"><strong>project summary
