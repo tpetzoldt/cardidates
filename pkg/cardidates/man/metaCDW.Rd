@@ -13,7 +13,7 @@
 metaCDW(dat, method = "weibull6", xstart = 55, xmin = 0, xmax = 365, 
         minpeak = 0.1, mincut = 0.382,
         quantile = 0.05, symmetric = FALSE, p0 = NULL, linint = -1, 
-        findpeak = TRUE, maxit=2000)
+        findpeak = TRUE, maxit = 2000)
 \method{summary}{cardiMetacdw}(object, file="", ...)
 }
 
@@ -84,18 +84,18 @@ data(carditest)
 dat <- carditest
 
 ## alternatively: import data from spreadsheet via the clipboard
-# dat <- read.table("clipboard", sep="\t", header=TRUE)
+# dat <- read.table("clipboard", sep = "\t", header = TRUE)
 
-## or, for German users
-# dat <- read.table("clipboard", sep="\t", header=TRUE, dec=",")
+## or, for languages with comma as decimal separator:
+# dat <- read.table("clipboard", sep = "\t", header = TRUE, dec = ",")
 
-plot(as.numeric(dat$sample)*365 + dat$doy, dat$y, type="b")
+plot(as.numeric(dat$sample)*365 + dat$doy, dat$y, type = "b")
 
 ## do the analysis
-tt <- metaCDW(dat, xstart=55)
+tt <- metaCDW(dat, xstart = 55)
 
 ## plot results
-par(mfrow=c(1,3))
+par(mfrow=c(1, 3))
 lapply(tt$weibullfits, plot)
 
 ## return table of results
@@ -103,10 +103,11 @@ summary(tt)
 
 \dontrun{
 ## copy to clipboard in spreadsheet compatible format
-summary(tt, file="clipboard", sep="\t", quote=FALSE, row.names=FALSE)
+summary(tt, file = "clipboard", sep = "\t", quote = FALSE, row.names = FALSE)
 
-## or, for German users:
-summary(tt, file="clipboard", sep="\t", dec=",", quote=FALSE, row.names=FALSE)
+## or, for languages with comma as decimal separator:
+#summary(tt, file = "clipboard", sep = "\t", dec = ",",
+#  quote = FALSE, row.names = FALSE)
 }
 }
 \keyword{misc}

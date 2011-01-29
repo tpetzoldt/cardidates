@@ -9,7 +9,7 @@
 \usage{
 \method{plot}{cardiFit}(x, y = NULL, xmin = 0, xmax = 365, quantile = 0.05, symmetric = FALSE, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{x}{object of class \code{cardiFit} resulting from a call to
     \code{\link{fitweibull6}} or \code{\link{fitweibull4}},}

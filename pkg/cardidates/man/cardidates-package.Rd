@@ -13,8 +13,8 @@ mass developments) in ecological time series using fitted Weibull-type functions
 \tabular{ll}{
 Package: \tab cardidate\cr
 Type: \tab Package\cr
-Version: \tab 0.3-4\cr
-Date: \tab 2008-02-15\cr
+Version: \tab 0.3-5\cr
+Date: \tab 2011-01-30\cr
 License: \tab GNU Public License 2 or above\cr
 }
 Phenology and seasonal succession in aquatic ecosystems are strongly 
@@ -37,7 +37,8 @@ The methodology may also be useful for other ecological time series
 if you feel that this package should be generalized to other processes.
 }
 \author{
-Susanne Rolinski (original functions), Thomas Petzoldt and René Sachse (package).
+  Susanne Rolinski (original functions),
+  Thomas Petzoldt and René Sachse (package).
 
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }
@@ -78,16 +79,16 @@ f <- res$ymax
 
 ## identify cardinal dates from fitted curves
 (smd  <- CDW(res$p))
-(smda <- CDW(res$p, symmetric=FALSE))
+(smda <- CDW(res$p, symmetric = FALSE))
 
 ## plot data, curve and cardinal dates
-plot(x, y, ylim=c(0, 10), xlim=c(0, 365))
+plot(x, y, ylim = c(0, 10), xlim = c(0, 365))
 lines(o$x, o$f * f)
-points(x, fweibull6(x, p) * f, col="green")
-points(smd$x, smd$y * f, col="orange", pch=16)
+points(x, fweibull6(x, p) * f, col = "green")
+points(smd$x, smd$y * f, col = "orange", pch = 16)
 
 ## or, alternatively:
-points(smda$x, fweibull6(smda$x, p) * f, col="red", pch=1, cex=1.2)
+points(smda$x, fweibull6(smda$x, p) * f, col = "red", pch = 1, cex = 1.2)
 
 ## for comparison: additional fit of a 4 parameter Weibull
 res4  <- fitweibull4(x, y)
@@ -96,8 +97,8 @@ p <- res4$p
 o <- res4$fit
 f <- res4$ymax
 smd  <- CDW(res4$p)
-lines(o$x, o$f * f, col="blue")
-points(smd$x, fweibull4(smd$x, p) * f, col="blue", pch=16)
+lines(o$x, o$f * f, col = "blue")
+points(smd$x, fweibull4(smd$x, p) * f, col = "blue", pch = 16)
 
 }
 

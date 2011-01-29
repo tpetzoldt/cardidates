@@ -11,7 +11,7 @@ CDW(p, xmin = 0, xmax = 365, quantile = 0.05, symmetric = FALSE)
 
 CDWa(p, xmin = 0, xmax = 365, quantile = 0.05, symmetric = FALSE)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{p}{object of class \code{cardiFit} returned by \code{\link{fitweibull6}} or
     \code{\link{fitweibull4}} or parameter vector of the fitted Weibull function}
@@ -52,9 +52,9 @@ CDWa(p, xmin = 0, xmax = 365, quantile = 0.05, symmetric = FALSE)
 \examples{
 ## create some test data
 set.seed(123)
-x <- seq(0, 360, length=20)
-y <- abs(rnorm(20, mean=1, sd=0.1))
-y[5:10] <- c(2,4,7,3,4,2)
+x <- seq(0, 360, length = 20)
+y <- abs(rnorm(20, mean = 1, sd = 0.1))
+y[5:10] <- c(2, 4, 7, 3, 4, 2)
 
 ## fit Weibull function with 6 free parameters
 res <- fitweibull6(x, y)
@@ -67,14 +67,14 @@ f <- res$ymax
 
 ## identify cardinal dates from fitted curves
 (smd  <- CDW(res$p))
-(smda <- CDW(res$p, symmetric=FALSE))
+(smda <- CDW(res$p, symmetric = FALSE))
 
 ## plot data, curve and cardinal dates
-plot(x, y, ylim=c(0, 10), xlim=c(0, 365))
+plot(x, y, ylim=c(0, 10), xlim = c(0, 365))
 lines(o$x, o$f * f)
-points(x, fweibull6(x, p) * f, col="green")
-points(smd$x, fweibull6(smd$x, p) * f, col="orange", pch=16)
-points(smda$x, fweibull6(smda$x, p) * f, col="red", pch=1, cex=1.2)
+points(x, fweibull6(x, p) * f, col = "green")
+points(smd$x, fweibull6(smd$x, p) * f, col = "orange", pch = 16)
+points(smda$x, fweibull6(smda$x, p) * f, col = "red", pch = 1, cex = 1.2)
 
 ## for comparison: additional fit of a 4 parameter Weibull
 res4  <- fitweibull4(x, y)
@@ -83,9 +83,9 @@ p <- res4$p
 o <- res4$fit
 f <- res4$ymax
 smd  <- CDW(res4$p)
-lines(o$x, o$f * f, col="blue")
-points(smd$x, fweibull4(smd$x, p) * f, col="blue", pch=16)
+lines(o$x, o$f * f, col = "blue")
+points(smd$x, fweibull4(smd$x, p) * f, col = "blue", pch = 16)
 }
 
-\keyword{ misc}
+\keyword{ misc }
 

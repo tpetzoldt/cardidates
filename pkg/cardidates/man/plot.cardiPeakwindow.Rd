@@ -1,6 +1,6 @@
 \name{plot.cardiPeakwindow}
 \alias{plot.cardiPeakwindow}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Plot Method for cardiPeakwindow Objects}
 \description{
   This function is intended to visualize peaks identified

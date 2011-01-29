@@ -2,7 +2,7 @@
 \alias{fitweibull}
 \alias{fitweibull6}
 \alias{fitweibull4}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Fit Four or Six Parametric Weibull Functions}
 \description{
   Fit a four- or six-parametric Weibull function to environmental data.
@@ -12,7 +12,7 @@ fitweibull6(x, y = NULL, p0 = NULL, linint = -1, maxit=2000)
 
 fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit=1000)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{x, y}{the x (in day of year) and y coordinates of a set of points.
               Alternatively, a single argument x can be provided.}
@@ -29,7 +29,7 @@ fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit=1000)
   for the optimization. It is intended to work with data which are defined over an
   interval between 0 and 365, e.g. environmental data and
   especially for plankton blooms.
-  Please note that the function does internal an transformation:
+  Please note that the function does internal transformation:
   \deqn{y_{rel} = y_i / y_{max}}{y_{rel} = y_i / y_{max}}
   
   Note that additional data points are inserted between original measurements
@@ -79,9 +79,9 @@ Oecologia \bold{153}, 997 - 1008. \url{http://dx.doi.org/10.1007/s00442-007-0783
 \examples{
 ## create some test data
 set.seed(123)
-x <- seq(0, 360, length=20)
-y <- abs(rnorm(20, mean=1, sd=0.1))
-y[5:10] <- c(2,4,7,3,4,2)
+x <- seq(0, 360, length = 20)
+y <- abs(rnorm(20, mean = 1, sd = 0.1))
+y[5:10] <- c(2, 4, 7, 3, 4, 2)
 
 ## fit Weibull function with 6 free parameters
 res <- fitweibull6(x, y)
@@ -95,9 +95,9 @@ f <- res$ymax
 ## fit 6 parameter Weibull with user-provided start parameters
 
 x <- seq(0, 150)
-y <- fweibull6(x, c(0.8, 40, 5, 0.2, 80, 5)) + rnorm(x, sd=0.1)
+y <- fweibull6(x, c(0.8, 40, 5, 0.2, 80, 5)) + rnorm(x, sd = 0.1)
 plot(x, y)
-res <- fitweibull6(x, y, p0=c(0, 40, 1, 1, 60, 0))
+res <- fitweibull6(x, y, p0 = c(0, 40, 1, 1, 60, 0))
 plot(res)
 }
 

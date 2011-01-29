@@ -9,7 +9,7 @@
 \usage{
 peakwindow(x, y = NULL, xstart = 0, xmax = max(x), minpeak = 0.1, mincut = 0.382)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{x, y}{the x (in day of year) and y coordinates of a set of points.
               Alternatively, a single argument x can be provided.}
@@ -75,18 +75,18 @@ plot(fit)
 ## some more options ...
 peaks <- peakwindow(x, y, xstart=150, mincut = 0.455)
 ind <- peaks$smd.indices
-lines(x[ind], y[ind], col="blue")
-points(x, y, col=peaks$peakid +1, pch=16) # all peaks
+lines(x[ind], y[ind], col = "blue")
+points(x, y, col=peaks$peakid +1, pch = 16) # all peaks
 
 ## work with indices only
 peaks <- peakwindow(y)
 
 ## test case with disturbed sinus
 x<- 1:100
-y <- sin(x/5) +1.5 + rnorm(x, sd=0.2)
+y <- sin(x/5) +1.5 + rnorm(x, sd = 0.2)
 peaks <- peakwindow(x, y)
 plot(x, y, type = "l", ylim = c(0, 3))
-points(x, y, col = peaks$peakid + 2, pch=16)
+points(x, y, col = peaks$peakid + 2, pch = 16)
 
 ## test case: only one peak
 yy <- c(1:10, 11:1)
