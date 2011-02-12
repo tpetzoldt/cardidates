@@ -207,12 +207,12 @@ To use it you must supply your data in a defined format, a table
 (technically an \proglang{R} data frame) with four columns:
 \textbf{sample} (description of the individual time series such as
 year, water body, or any other code, should be numeric or factor),
-\textbf{doy} (Julian day of the year), \code{y} (the dependent
-variable, e.g. phytoplankton biovolume) and \code{flag} (of type
-boolean indicating whether the data point should be included in
-analysis). The last column (flag) can be used to mask individual data
-points. It may contain either FALSE or 0 (zero) to disable
-respectively TRUE or 1 (one) to enable data points. If flag is
+\textbf{x} (the independend variable, e.g. Julian day of the year),
+\code{y} (the dependent variable, e.g. phytoplankton biovolume) and
+\code{flag} (of type boolean indicating whether the data point should
+be included in analysis). The last column (flag) can be used to mask
+individual data points. It may contain either FALSE or 0 (zero) to
+disable respectively TRUE or 1 (one) to enable data points. If flag is
 omitted, all data sets are enabled. In the following we use an example
 data set provided by the package:
 
@@ -248,7 +248,7 @@ ever it's wise to check and visualize both, data and results. For
 plotting all data sets on one figure you may use:
 
 <<fig=FALSE>>=
-plot(as.numeric(carditest$sample) * 365 + carditest$doy, carditest$y, type="b")
+plot(as.numeric(carditest$sample) * 365 + carditest$x, carditest$y, type="b")
 @
 
 To plot the complete results of a (not too large) data set use:
@@ -315,7 +315,7 @@ one of the most simple methods:
 \item Copy your data as usual into your favorite spreadsheet program
   in two columns with title head \textbf{X} and \textbf{Y}, without
   empty lines above and without measurement units below the \textbf{X,
-    Y} header or with three colums \textbf{sample}, \textbf{doy},
+    Y} header or with three colums \textbf{sample}, \textbf{x},
   \textbf{y} in the \texttt{metaCDW} format.
 \item Save this table as \textbf{text only} to your harddisk and
   remember where you have stored this file.

@@ -21,7 +21,7 @@ metaCDW(dat, method = "weibull6", xstart = 55, xmin = 0, xmax = 365,
   \item{dat}{a \code{data.frame} containig the columns: 
     \code{sample} (description of the timeseries such as year, water body, or any 
       other code (should be numeric or factor),
-      \code{doy} (Julian day of the year),
+      \code{x} (the independend variable, e.g. Julian day of the year),
       \code{y} (the dependend variable, e.g. phytoplankton biovolume)
       and an optional column \code{flag} (of type \code{boolean} indicating whether
       a data point should be included in analysis)}
@@ -79,7 +79,7 @@ metaCDW(dat, method = "weibull6", xstart = 55, xmin = 0, xmax = 365,
 \examples{
 
 ## open test data set (3 years) with 4 columns
-## sample, doy, y, flag
+## sample, x, y, flag
 data(carditest)
 dat <- carditest
 
@@ -89,7 +89,7 @@ dat <- carditest
 ## or, for languages with comma as decimal separator:
 # dat <- read.table("clipboard", sep = "\t", header = TRUE, dec = ",")
 
-plot(as.numeric(dat$sample)*365 + dat$doy, dat$y, type = "b")
+plot(as.numeric(dat$sample)*365 + dat$x, dat$y, type = "b")
 
 ## do the analysis
 tt <- metaCDW(dat, xstart = 55)

@@ -1,6 +1,6 @@
 `metaCDW` <-
 function (dat, method="weibull6", xstart = 55,
-           xmin = 0, xmax = 365, 
+           xmin = 0, xmax = 365,
            minpeak = 0.1, mincut = 0.382,
            quantile = 0.05, symmetric = FALSE,
            p0 = NULL, linint = -1, findpeak = TRUE, maxit=2000) {
@@ -9,7 +9,7 @@ function (dat, method="weibull6", xstart = 55,
    dat$sample <- as.factor(dat$sample)
    if (!(length(xstart) %in% c(1, nlevels(dat$sample)))) stop("length of xstart does not match number of samples")
    datnew  <- dat
-   
+
    xstartframe   <- data.frame(sample = levels(datnew$sample), xstart = xstart)
    datnew  <- subset(dat, dat$flag == TRUE)
    rows    <- nrow(datnew)
@@ -20,7 +20,7 @@ function (dat, method="weibull6", xstart = 55,
        dattmp  <- subset(datnew, sample == i)
        if (nrow(dattmp) < 3) stop(paste("less than 3 valid points in sample`", i,"'"))
        thexstart <- xstartframe$xstart[xstartframe$sample == i]
-       peaks   <- peakwindow(dattmp$doy, dattmp$y,
+       peaks   <- peakwindow(dattmp$x, dattmp$y,
                              xstart = thexstart, xmax = xmax,
                              minpeak = minpeak, mincut = mincut)
        smd     <- peaks$smd.indices
@@ -31,7 +31,7 @@ function (dat, method="weibull6", xstart = 55,
      datnew <- subset(datnew, setflag == TRUE)
    }
    # calculate CWD
-   if (method == "weibull6") {fitweibull <- fitweibull6} 
+   if (method == "weibull6") {fitweibull <- fitweibull6}
    else if (method == "weibull4") {fitweibull <- fitweibull4}
    else {stop("method unknown")}
    metares <- NULL
@@ -41,11 +41,11 @@ function (dat, method="weibull6", xstart = 55,
      cat("processing sample", i, "\t")
      j       <- j + 1
      dattmp  <- subset(datnew, sample == i)
-     x       <- dattmp$doy
+     x       <- dattmp$x
      y       <- dattmp$y
 
      res[j]  <- list(fitweibull(x, y, p0, linint, maxit=maxit))
-     cat(ifelse(res[[j]]$convergence ==0, "converged, ", " --      , "))  
+     cat(ifelse(res[[j]]$convergence ==0, "converged, ", " --      , "))
      cat("r2 =", round(res[[j]]$r2, 4),"\n")
      ## ---> Testing code
      card <- tryCatch({
@@ -64,7 +64,7 @@ function (dat, method="weibull6", xstart = 55,
      ## <--- end testing code
 
      metarestmp <- data.frame(
-       sample = i, 
+       sample = i,
        tMid   = card$x[[1]],
        tBegin = card$x[[2]],
        tEnd   = card$x[[3]],
@@ -78,7 +78,7 @@ function (dat, method="weibull6", xstart = 55,
      )
      if (method == "weibull6") {
        metarestmp$p5 <- card$p[5]
-       metarestmp$p6 <- card$p[6] 
+       metarestmp$p6 <- card$p[6]
      }
      metarestmp$r2 <- res[[j]]$r2
      metares <-  rbind(metares, metarestmp)

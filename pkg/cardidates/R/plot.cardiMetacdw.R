@@ -12,7 +12,7 @@ plot.cardiMetacdw <- function(x, y, type = "lattice", scale = TRUE, col.poly = "
         fweibull <- fweibull6
       }
 
-      xyplot(y ~ doy|as.factor(sample), data=dat, ...,
+      xyplot(y ~ x|as.factor(sample), data=dat, ...,
         panel=function(x, y, subscripts, groups, ...) {
           i <- panel.number()
           mres <- tt$weibullfits[[i]]
@@ -21,7 +21,7 @@ plot.cardiMetacdw <- function(x, y, type = "lattice", scale = TRUE, col.poly = "
           panel.xyplot(x, y)
           xx <- seq(min(x), max(x), length=100)
           yy <- fweibull(xx, mres$p)
-          panel.lines(xx, mres$ymax * yy, col="darkgreen", lwd=2)          
+          panel.lines(xx, mres$ymax * yy, col="darkgreen", lwd=2)
           #panel.lines(mres$fit$x, mres$fit$f * mres$ymax, col="darkgreen", lwd=2)
           panel.points(smdx, smdy * mres$ymax, col="tomato", pch=16)
        }
@@ -34,10 +34,10 @@ plot.cardiMetacdw <- function(x, y, type = "lattice", scale = TRUE, col.poly = "
           if (!(length(col.poly) %in% c(1, count))) stop("length of col.poly does not match number of samples")
           polygoncols <- if(length(col.poly == 1)){rep(col.poly, count)} else {col.poly}
           yrange <- 1:count
-          xrange <- floor(seq(min(dat$doy), max(dat$doy), length=12))
+          xrange <- floor(seq(min(dat$x), max(dat$x), length=12))
           ymax <- max(erg$yMid)
           ys      <- if(scale == TRUE){erg$yMid / ymax} else {rep(1,count)}
-          plot(c(min(xrange),max(xrange)), c(min(yrange), max(yrange) + 1), 
+          plot(c(min(xrange),max(xrange)), c(min(yrange), max(yrange) + 1),
             type="n", yaxt="n", ylab="", xlab="Julian Day of Year", ...)
           axis(2, at=yrange, labels=levels(erg$sample))
           abline(h=yrange, lty=3, col=grey(0.7))
