@@ -5,8 +5,8 @@ Version: 0.4
 Date: 2011-01-30
 Depends: R (>= 2.4.0), boot, pastecs
 Suggests: lattice
-LazyLoad: yes
 Encoding: latin1
+LazyLoad: yes
 Author: Susanne Rolinski, Rene Sachse, Thomas Petzoldt
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 Description: The package helps to identify cardinal dates
