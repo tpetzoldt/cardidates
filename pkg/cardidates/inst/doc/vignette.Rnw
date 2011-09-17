@@ -19,14 +19,14 @@
 %\newcommand{\proglang}[1]{\textbf[#1]}
 \newcommand{\link}[1]{#1}              % dummy
 
-\author{Thomas Petzoldt, René Sachse and Susanne Rolinski}
+\author{Thomas Petzoldt, Ren\`{e} Sachse and Susanne Rolinski}
 \title{Quickstart Manual for Package \pkg{cardidates}}
 %\VignetteIndexEntry{cardidates Quickstart Manual}
 
 
 
-\Abstract{ The \pkg{cardidates} package provides methods for fitting
-  four resp. six parametric Weibull functions to environmental
+\Abstract{ The \pkg{cardidates} package provides methods for identifying peaks and
+  fitting four resp. six parametric Weibull functions to peaks in environmental
   data. Heuristics are applied for finding initial parameters in the
   six parametric case. As a second step, the fitted functions can be
   used to identify maximum, beginning and end of peaks by using a
@@ -40,8 +40,7 @@
 \begin{document}
 
 This manual describes the \proglang{R} package \textbf{cardidates},
-version \Sexpr{installed.packages()["cardidates", 3]}, November 19,
-2007.
+version \Sexpr{installed.packages()["cardidates", 3]}.
 
 \section{Introduction}
 
@@ -58,7 +57,8 @@ means that it is not necessarily important to get good estimates for
 one particular time series but to get reproducible results
 independently of the person who performs the analysis.
 
-The proposed methods were developed within the AQUASHIFT research
+The proposed methods were developed within the 
+AQUASHIFT\footnote{\url{http://www.ifm-geomar.de/?id=1985&L=1}} research
 program and used to determine the beginning, maximum and end of the
 spring mass development of phytoplankton in different lakes and water
 reservoirs.  These time points, that we call ``cardinal dates'', can
@@ -67,8 +67,7 @@ variables.
 
 The complete methodology is described in \citet{Rolinski2007}.  Until
 now we implemented only the most reliable approach using
-Weibull-functions (Method B in the article); other functions may
-follow.
+Weibull-functions (Method B in the article), other algorithms may follow.
 
 The methodology may also be useful for other ecological time series
 (e.g. bacteria, protozoa, insects or small mammals). Please don't
@@ -84,23 +83,19 @@ You need the following software:
   \proglang{R}, \citep{Rcore2007} that can be downloaded from
   \url{http://www.r-project.org}.
 \item the \pkg{cardidates} package, which is available as source code
-  and as Windows, Macintosh and Linux ``binary''. Currently we do not
-  yet intend to upload \pkg{cardidates} to CRAN, the comprehensive
-  \proglang{R} archive network, however, it is available from the
-  \proglang{R} package development server
-  R-Forge\footnote{\url{http://r-forge.r-project.org/projects/cardidates/}}
-  of one of the authors to obtain the most recent version.
+  and as Windows, Macintosh and Linux ``binary'' from CRAN, the comprehensive
+  \proglang{R} archive network:
+\begin{Sinput}
+> install.packages("cardidates")
+\end{Sinput}   
+  
 \item \pkg{cardidates} requires two contributed packages named
   \pkg{boot} and \pkg{pastecs} \citep{boot-package,pastecs-package}
-  which can be installed directly from the internet. This can be done
-  either using the menu (e.g. on Windows) or with the following
-  command:
-\begin{Sinput}
-> install.packages(c("boot", "pastecs"))
-\end{Sinput}
+  which are installed automatically when installing the package
+  directly from the internet.
 \end{itemize}
 
-Following documentation and help examples of the package should be
+The following documentation and help examples of the package should be
 sufficient for applying the functions. It is not necessary to be a
 full-experienced \proglang{R} programmer. If you however want to
 crunch large data sets automatically a little bit of \proglang{R}
@@ -119,7 +114,7 @@ Identification of cardinal dates is carried out in the following way:
 \item Extract cardinal dates with functions \code{CDW} or \code{CDWa}
   or use the default \code{summary} method.
 \item Results can be visualized with standard \proglang{R} functions
-  or an object-specific \code{plot} method.
+  or an class-specific \code{plot} method.
 \end{enumerate}
 
 This process can be done either step by step for single peaks as
@@ -225,12 +220,12 @@ You may inspect this data set as usual, e.g. simply by typing
 example on help page).  Now we invoke the analysis with an important
 optional parameter \texttt{xstart} determining the offset of the main
 peak, e.g.  a value of 55 to neglect winter peaks before the spring
-mass development.  Setting the flag of the respective data manually to
-FALSE in the optional column provides another, more individual
+mass development.  Setting individual values of the optional \code{flag} 
+column of the data set manually to FALSE provides another, more individual
 mechanism for this purpose:
 
 <<plot=FALSE>>=
-tt <- metaCDW(carditest, xstart=55)
+tt <- metaCDW(carditest, xstart = 55)
 @
 
 and inspect the results:
@@ -244,11 +239,11 @@ analysis, i.e. the cardinal dates (\texttt{tMid} \dots \texttt{yEnd},
 the parameters of the Weibull function (\texttt{p1} \dots \texttt{p6})
 and the coefficient of determination (\texttt{r2}) of the fit. No
 additional steps are required if your data set is well-behaved, but as
-ever it's wise to check and visualize both, data and results. For
+ever it is wise to check and visualize both, data and results. For
 plotting all data sets on one figure you may use:
 
 <<fig=FALSE>>=
-plot(as.numeric(carditest$sample) * 365 + carditest$x, carditest$y, type="b")
+plot(as.numeric(carditest$sample) * 365 + carditest$x, carditest$y, type = "b")
 @
 
 To plot the complete results of a (not too large) data set use:
@@ -289,14 +284,14 @@ The result of the analysis can be written to an arbitrary textfile
 supplied as optional file argument to \texttt{summary}, e.g.:
 
 \begin{Scode}
-> summary(tt, file="d:/results.txt", sep="\t", quote=FALSE, row.names=FALSE)
+> summary(tt, file = "d:/results.txt", sep = "\t", quote = FALSE, row.names = FALSE)
 \end{Scode}
 
 or, to write the results directly to the windows clipboard in a format
 compatible to spreadsheets and with German comma:
 
 \begin{Scode}
-> summary(tt, file="clipboard", sep="\t", dec=",", quote=FALSE, row.names=FALSE)
+> summary(tt, file = "clipboard", sep = "\t", dec = ",", quote = FALSE, row.names = FALSE)
 \end{Scode}
 
 \section{More options}\label{s:moreopt}
@@ -324,14 +319,14 @@ one of the most simple methods:
 \end{enumerate}
 
 \begin{Sinput}
-> dat <- read.table(file.choose(), header=TRUE, sep="\t")
+> dat <- read.table(file.choose(), header = TRUE, sep = "\t")
 \end{Sinput}
 
 Please note that some languages use ``,'' as decimal separator.  In
 such cases use:
 
 \begin{Sinput}
-> dat <- read.table(file.choose(), header=TRUE, sep="\t", dec=",")
+> dat <- read.table(file.choose(), header = TRUE, sep = "\t", dec = ",")
 \end{Sinput}
 
 The data stored in \code{dat} can be passed directly to
@@ -369,22 +364,22 @@ disturbed periodic function:
 
 <<>>=
 set.seed(537)
-x <- seq(1, 360, length=50)
+x <- seq(1, 360, length = 50)
 y <- exp(cos(x/20)) + 0.3 + rnorm(x, sd = 0.3)
 @
 
 We now apply the \code{peakwindow} function to the x and y data where
-\code{xstart = 70} is an optional value to indicate the time of ice
-out after which the phytoplankton spring mass development is expected
-to begin:
+\code{xstart = 60} is an optional value to indicate the start time of the 
+``specific peak'', e.g. the time of ice out after which the phytoplankton 
+spring mass development is expected to begin:
 
 <<>>=
-peaks <- peakwindow(x, y, xstart=60)
+peaks <- peakwindow(x, y, xstart = 60)
 @
 
 Again, an object specific plot method can be used to visualize the
-results. All identified are peaks labelled with consecutive numbers
-amd the spring is peak marked with a red line:
+results. All identified peaks are labelled with consecutive numbers
+amd the ``specific peak'' is marked with a red line:
 
 <<fig=TRUE,include=TRUE, width=8, height=6>>=
 plot(peaks)

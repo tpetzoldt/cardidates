@@ -1,0 +1,9 @@
+export(CDW, peakwindow, metaCDW)
+exportPattern(".weibull.*")
+exportPattern("fitweibull.*")
+
+S3method("plot", "cardiMetacdw")
+S3method("merge", "cardiMetacdw")
+S3method("plot", "cardiFit")
+S3method("plot", "cardiPeakwindow")
+S3method("summary", "cardiFit")
