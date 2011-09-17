@@ -31,7 +31,7 @@
   objectivity and reproducibility.
 }
 \value{
-  An object of class 'cardiMetacdw', i.e. a fit 
+  An object of class 'cardiMetacdw', i.e. a Weibull fit. 
 }
 
 \seealso{

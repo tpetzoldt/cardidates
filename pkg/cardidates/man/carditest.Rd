@@ -9,21 +9,23 @@
 \usage{
 data(carditest)
 }
-\format{Two data frames of two variables with the following components:
-
-\describe{
-  A data frame of phytoplankton biovolume (or other time series) of several 
-  years, samples or both with the following 4 columns:
-
-       \describe{
-          \item{\code{sample:}}{time code}
-          \item{\code{x:}}{day of year (interval 0 \dots 365)}
-          \item{\code{y:}}{observed biovolume, abundance etc.}
-          \item{\code{flag:}}{validity flag to switch single data records on 
-            (\code{TRUE}) or off (\code{FALSE}), defaults to \code{TRUE}}
-       }}  
+\format{
+  A data frame with the following 4 columns:
+  \describe{
+    \item{\code{sample:}}{time code}
+    \item{\code{x:}}{day of year (interval 0 \dots 365)}
+    \item{\code{y:}}{observed biovolume, abundance etc.}
+    \item{\code{flag:}}{validity flag to switch single data records on 
+      (\code{TRUE}) or off (\code{FALSE}), defaults to \code{TRUE}}
+  }  
 }
 
 \seealso{\code{\link{metaCDW}}}
+
+\example{
+data(carditest)
+head(carditest)
+#View(carditest)
+}
 
 \keyword{datasets}

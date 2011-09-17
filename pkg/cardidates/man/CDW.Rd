@@ -14,11 +14,11 @@ CDWa(p, xmin = 0, xmax = 365, quantile = 0.05, symmetric = FALSE)
 
 \arguments{
   \item{p}{object of class \code{cardiFit} returned by \code{\link{fitweibull6}} or
-    \code{\link{fitweibull4}} or parameter vector of the fitted Weibull function}
-  \item{xmin}{left boundary (in day of year) of the integral under the curve}
-  \item{xmax}{right boundary (in day of year) of the integral under the curve}
+    \code{\link{fitweibull4}} or parameter vector of the fitted Weibull function,}
+  \item{xmin}{left boundary (in day of year) of the integral under the curve,}
+  \item{xmax}{right boundary (in day of year) of the integral under the curve,}
   \item{quantile}{two-sided quantile (percentage of integral)
-       which defines beginning and end of the peak}
+       which defines beginning and end of the peak,}
   \item{symmetric}{if (\code{TRUE}), quantiles are calculated for the whole area
        under the curve, otherwise for each of the branches separately.}
 }
@@ -26,8 +26,8 @@ CDWa(p, xmin = 0, xmax = 365, quantile = 0.05, symmetric = FALSE)
   \code{CDW} is a numerically improved version of the algorithm
   described in Rolinski et al. (2007). Version \code{CDWa} is an alternative,
   simplified version which sets the baseline before and after the peak to zero
-  using appropriate offset parameters \code{p[1]} and \code{p[4]} while
-  the original method described by Rolinski et al. 2007 (here called \code{CDW})
+  using appropriate offset parameters \code{p[1]} and \code{p[4]}. 
+  The original method described by Rolinski et al. 2007 (here called \code{CDW})
   shifts the function for the left and right branch separately
   in the asymmetric case.
 }
@@ -66,8 +66,8 @@ o <- res$fit
 f <- res$ymax
 
 ## identify cardinal dates from fitted curves
-(smd  <- CDW(res$p))
-(smda <- CDW(res$p, symmetric = FALSE))
+(smd  <- CDW(p))
+(smda <- CDW(p, symmetric = FALSE))
 
 ## plot data, curve and cardinal dates
 plot(x, y, ylim=c(0, 10), xlim = c(0, 365))
@@ -82,7 +82,7 @@ res4$r2
 p <- res4$p
 o <- res4$fit
 f <- res4$ymax
-smd  <- CDW(res4$p)
+smd  <- CDW(p)
 lines(o$x, o$f * f, col = "blue")
 points(smd$x, fweibull4(smd$x, p) * f, col = "blue", pch = 16)
 }

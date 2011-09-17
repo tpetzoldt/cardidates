@@ -16,10 +16,10 @@
   \item{xmin}{left boundary (in day of year) of the integral under the curve}
   \item{xmax}{right boundary (in day of year) of the integral under the curve}
   \item{quantile}{two-sided quantile (percentage of integral)
-       which defines beginning and end of the peak}
+       which defines beginning and end of the peak,}
   \item{symmetric}{if (\code{TRUE}), quantiles are calculated for the whole area
-       under the curve, otherwise for each of the branches separately.}
-  \item{\dots}{for compatibility only}
+       under the curve, otherwise for each of the branches separately,}
+  \item{\dots}{for compatibility only.}
 }
 \details{
   See \code{\link{CDW}} fro a detailed description of function parameters.
@@ -37,9 +37,9 @@
 \examples{
 ## create some test data
 set.seed(123)
-x <- seq(0, 360, length=20)
-y <- abs(rnorm(20, mean=1, sd=0.1))
-y[5:10] <- c(2,4,7,3,4,2)
+x <- seq(0, 360, length = 20)
+y <- abs(rnorm(20, mean = 1, sd = 0.1))
+y[5:10] <- c(2, 4, 7, 3, 4, 2)
 
 ## fit Weibull function with 6 free parameters
 res <- fitweibull6(x, y)

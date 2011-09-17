@@ -6,15 +6,15 @@
 Identify cardinal dates in ecological time series
 }
 \description{
-The package helps to identify cardinal dates (begin, time of maximum, end of
+The package helps to identify ``cardinal dates'' (begin, time of maximum, end of
 mass developments) in ecological time series using fitted Weibull-type functions.
 }
 \details{
 \tabular{ll}{
 Package: \tab cardidate\cr
 Type: \tab Package\cr
-Version: \tab 0.3-5\cr
-Date: \tab 2011-01-30\cr
+Version: \tab 0.4-1\cr
+Date: \tab 2011-09-17\cr
 License: \tab GNU Public License 2 or above\cr
 }
 Phenology and seasonal succession in aquatic ecosystems are strongly 
@@ -30,15 +30,15 @@ can be analysed for temporal trends and relationships to climate variables.
 
 The complete methodology is described in Rolinski et. al (2007).  
 Until now we implemented only the most reliable approach using Weibull-Functions
-(Method B in the article), the other functions may possibly follow.
+(Method B in the article), other algorithms may follow when required.
 
 The methodology may also be useful for other ecological time series 
-(e.g. small mammals or insects). Please don't hesitate to contact the authors
+(e.g. small mammals or insects). Please don't hesitate to contact the package maintainer
 if you feel that this package should be generalized to other processes.
 }
 \author{
-  Susanne Rolinski (original functions),
-  Thomas Petzoldt and René Sachse (package).
+  Susanne Rolinski (original algorithm),
+  Thomas Petzoldt and René Sachse (package and documentation).
 
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }
@@ -78,8 +78,8 @@ o <- res$fit
 f <- res$ymax
 
 ## identify cardinal dates from fitted curves
-(smd  <- CDW(res$p))
-(smda <- CDW(res$p, symmetric = FALSE))
+(smd  <- CDW(p))
+(smda <- CDW(p, symmetric = FALSE))
 
 ## plot data, curve and cardinal dates
 plot(x, y, ylim = c(0, 10), xlim = c(0, 365))
@@ -90,13 +90,13 @@ points(smd$x, smd$y * f, col = "orange", pch = 16)
 ## or, alternatively:
 points(smda$x, fweibull6(smda$x, p) * f, col = "red", pch = 1, cex = 1.2)
 
-## for comparison: additional fit of a 4 parameter Weibull
+## for comparison: fit of a 4 parameter Weibull
 res4  <- fitweibull4(x, y)
 res4$r2
 p <- res4$p
 o <- res4$fit
 f <- res4$ymax
-smd  <- CDW(res4$p)
+smd  <- CDW(p)
 lines(o$x, o$f * f, col = "blue")
 points(smd$x, fweibull4(smd$x, p) * f, col = "blue", pch = 16)
 

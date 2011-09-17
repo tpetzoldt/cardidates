@@ -1,7 +1,7 @@
 \name{peakwindow}
 \alias{peakwindow}
 
-\title{Identify Peaks in time Series}
+\title{Identify Peaks in Time Series}
 \description{
   This function identifies peaks in time series and helps to identify the time window of
   the first maximum according to given rules.
@@ -24,19 +24,19 @@ peakwindow(x, y = NULL, xstart = 0, xmax = max(x), minpeak = 0.1, mincut = 0.382
 \details{
   This is a heuristic peak detection algorithm. It can be used for two related
   purposes, (i) to identify all relevant peaks within a time-series and (ii)
-  to identify the time window which belongs to one dedicated peak (e.g. the
-  spring maximum in phytoplankton time series).
+  to identify the time window which belongs to one single peak (smd = specified mass 
+  development, e.g. spring maximum in phytoplankton time series).
 }
 \value{
   A list with the following elements:
   \item{peaks}{a data frame with the characteristics (index, xleft, x, xright and y)
-    of all identified peaks}
-  \item{data}{}
-  \item{smd.max.index}{index of the maximum value of the ``dedicated'' peak,}
-  \item{smd.max.x}{x-value of the maximum of the ``dedicated'' peak,}
-  \item{smd.indices}{indices (data window) of all data belonging to the ``dedicated'' peak,}
-  \item{smd.x}{x-values (time window) of all data belonging to the ``dedicated'' peak,}
-  \item{smd.y}{corresponding y-values of all data belonging to the ``dedicated'' peak,}
+    of all identified peaks,}
+  \item{data}{the original data set (\code{x}, \code{y}),}
+  \item{smd.max.index}{index of the maximum value of the ``specified'' peak,}
+  \item{smd.max.x}{x-value of the maximum of the ``specified'' peak,}
+  \item{smd.indices}{indices (data window) of all data belonging to the ``specified'' peak,}
+  \item{smd.x}{x-values (time window) of all data belonging to the ``specified'' peak,}
+  \item{smd.y}{corresponding y-values of all data belonging to the ``specified'' peak,}
   \item{peakid}{vector with peak-id-numbers for all data.}
 }
 
@@ -55,8 +55,8 @@ set.seed(123)
 x <- seq(0, 360, length = 20)
 y <- abs(rnorm(20, mean = 1, sd = 0.1))
 y[5:10] <- c(2, 4, 7, 3, 4, 2)
-y <- c(y, 0.8 * y, 1.2*y)
-x <- seq(0, 360, along=y)
+y <- c(y, 0.8 * y, 1.2 * y)
+x <- seq(0, 360, along = y)
 y[6] <- y[7]   # test case with 2 neighbouring equal points
 
 ## plot the test data
@@ -76,7 +76,7 @@ plot(fit)
 peaks <- peakwindow(x, y, xstart=150, mincut = 0.455)
 ind <- peaks$smd.indices
 lines(x[ind], y[ind], col = "blue")
-points(x, y, col=peaks$peakid +1, pch = 16) # all peaks
+points(x, y, col = peaks$peakid +1, pch = 16) # all peaks
 
 ## work with indices only
 peaks <- peakwindow(y)

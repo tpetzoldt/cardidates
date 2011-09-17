@@ -8,9 +8,9 @@
   Fit a four- or six-parametric Weibull function to environmental data.
 }
 \usage{
-fitweibull6(x, y = NULL, p0 = NULL, linint = -1, maxit=2000)
+fitweibull6(x, y = NULL, p0 = NULL, linint = -1, maxit = 2000)
 
-fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit=1000)
+fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit = 1000)
 }
 
 \arguments{
@@ -22,7 +22,7 @@ fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit=1000)
     Negative values (default) specify automatic selection heuristic,
     zero disables interpolation. A positive value is interpreted as mandatory
     interpolation time step.}
-   \item{maxit}{maximum number of iterations passed to the optimisation functions}
+   \item{maxit}{maximum number of iterations passed to the optimisation functions.}
 }
 \details{
   Function \code{fitweibull6} uses extensive heuristics to derive initial parameters
@@ -48,14 +48,14 @@ fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit=1000)
   \item{r2}{coefficient of determination between transformed and fitted y values,}
   \item{fit}{data frame with the following columns:
     \itemize{
-      \item{x}{data (original or interpolated) used for curve fitting}
-      \item{y}{data (transformed-original or interpolated) used for curve fitting}
-      \item{f}{estimated function values}
+      \item{\code{x}~}{data (original or interpolated) used for curve fitting,}
+      \item{\code{y}~}{data (transformed-original or interpolated) used for curve fitting,}
+      \item{\code{f}~}{estimated function values.}
     }
   }
 }
 \author{
-Susanne Rolinski (original functions) and Thomas Petzoldt (package).
+Susanne Rolinski (original algorithm) and Thomas Petzoldt (package).
 
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }

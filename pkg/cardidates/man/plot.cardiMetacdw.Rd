@@ -15,18 +15,18 @@
     to \code{\link{CDW}},}
   \item{y}{the original data which were supplied to
   \code{\link{CDW}},}
-  \item{type}{either "lattice" or "polygon"}
+  \item{type}{either "lattice" or "polygon",}
   \item{scale}{a logical value indicating whether the height of
-  polygons should be scaled relative to the highest peak}
+  polygons should be scaled relative to the highest peak,}
   \item{col.poly}{color of polygons, either a single numeric value
-  for all years or a vector of the same length as number of samples}
+  for all years or a vector of the same length as number of samples,}
   \item{\dots}{other arguments passed to \code{xyplot} or \code{plot}.}
 }
 
 \details{
   This is a top-level function to plot a complete set of
   fits resurned by \code{\link{metaCDW}} together with the original data points.
-  The function requires the optionally installed \pkg{lattice} package.
+  The function requires the \pkg{lattice} package.
 }
 
 \seealso{\code{\link{peakwindow}},
@@ -47,10 +47,10 @@ tt <- metaCDW(carditest)
 plot(tt, carditest)
 
 ## or with alternate layout:
-plot(tt, carditest, layout=c(1, 3))
+plot(tt, carditest, layout = c(1, 3))
 
 ## plot polygons
-plot(tt, carditest, type="polygon")
+plot(tt, carditest, type = "polygon")
 }
 
 \keyword{ hplot }

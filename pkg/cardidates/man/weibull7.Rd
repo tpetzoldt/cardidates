@@ -18,8 +18,9 @@ aweibull7(p, lower = 0, upper = 365)
   \item{p}{vector of function parameters, see \code{\link{weibull6}} for
     an explanation of parameters \code{p[1]} \dots \code{p[6]};
      \code{p[7]} is an additive constant.}
-  \item{lower}{lower limit of the cumulative (integrated) function}
-  \item{upper}{upper limit of the cumulative (integrated) function}}
+  \item{lower}{lower limit of the cumulative (integrated) function,}
+  \item{upper}{upper limit of the cumulative (integrated) function.}
+}
 \details{
    The function is intended for
    internal use, i.e. for separate area calculations of the left and right branches.

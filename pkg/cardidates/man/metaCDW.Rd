@@ -24,14 +24,14 @@ metaCDW(dat, method = "weibull6", xstart = 55, xmin = 0, xmax = 365,
       \code{x} (the independend variable, e.g. Julian day of the year),
       \code{y} (the dependend variable, e.g. phytoplankton biovolume)
       and an optional column \code{flag} (of type \code{boolean} indicating whether
-      a data point should be included in analysis)}
-  \item{method}{either "weibull6" or "weibull4"}
+      a data point should be included in analysis),}
+  \item{method}{either "weibull6" or "weibull4",}
   \item{xstart}{offset (day of year) for the "spring" peak; either a single 
-    numeric value for all years or a vector of the same length as number of samples}
-  \item{xmin}{left boundary (in day of year) of the integral under the curve}
-  \item{xmax}{right boundary (in day of year) of the integral under the curve}
+    numeric value for all years or a vector of the same length as number of samples,}
+  \item{xmin}{left boundary (in day of year) of the integral under the curve,}
+  \item{xmax}{right boundary (in day of year) of the integral under the curve,}
   \item{quantile}{two-sided quantile (percentage of integral)
-       which defines beginning and end of the peak}
+       which defines beginning and end of the peak,}
   \item{minpeak}{minimum value of the total maximum which is regarded as peak
                  (default value is derived from golden section),}
   \item{mincut}{minimum relative height of a pit compared to the lower of the
@@ -39,18 +39,18 @@ metaCDW(dat, method = "weibull6", xstart = 55, xmin = 0, xmax = 365,
   \item{symmetric}{if (\code{TRUE}), quantiles are calculated for the whole area
        under the curve, otherwise for each of the branches separately.}
   \item{p0}{initial parameters for optimization. In case of \code{p0 = NULL}
-    a heuristic algorithm to derive initial values is used for \code{fitweibull6}.}
+    a heuristic algorithm to derive initial values is used for \code{fitweibull6},}
   \item{linint}{control parameter to select interpolation behavior.
     Negative values (default) specify automatic selection heuristic,
     zero disables interpolation. A positive value is interpreted as mandatory
     interpolation time step.}
-  \item{maxit}{maximum number of iterations passed to the optimisation functions}
+  \item{maxit}{maximum number of iterations passed to the optimisation functions,}
   \item{findpeak}{a logical value indicating whether the relevant peaks of the time series
      should be identified automatically with \code{\link{peakwindow}} 
-     before the computation proceeds}
-  \item{object}{a result from a call to \code{\link{metaCDW}}}
-  \item{file}{file name where the data are to be written to, defaults to screen}
-  \item{...}{other parameters of \code{summary} passed to \code{write}}
+     before the computation proceeds,}
+  \item{object}{a result from a call to \code{\link{metaCDW}},}
+  \item{file}{file name where the data are to be written to, defaults to screen,}
+  \item{...}{other parameters of \code{summary} passed to \code{write}.}
 }
 \details{
   This is a top-level function which calls \code{\link{peakwindow}},
@@ -89,6 +89,7 @@ dat <- carditest
 ## or, for languages with comma as decimal separator:
 # dat <- read.table("clipboard", sep = "\t", header = TRUE, dec = ",")
 
+## Note: as.numeric recodes factor year to numeric value
 plot(as.numeric(dat$sample)*365 + dat$x, dat$y, type = "b")
 
 ## do the analysis
