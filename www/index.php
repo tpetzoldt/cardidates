@@ -93,7 +93,7 @@ be generalized to other processes.</p>
 <h3>Sourcecode and Downloads</h3>
 
 <p> You can download compiled packages for different operation systems
-(Linux, Mac, Wiondows) or inspect sourcecode and documentation online
+(Linux, Mac, Windows) or inspect source code and documentation online
 before downloading.</p>
 
 <p>Details can be found on the <a href="http://<?php echo $domain;
