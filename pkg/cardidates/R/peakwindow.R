@@ -7,8 +7,8 @@ function(x, y = NULL, xstart = 0, xmax = max(x),
     npeaks <- length(ft)
     ndata  <- length(y)
     if (npeaks > 0) {
-    fp <- x1 <- x2 <- numeric(npeaks)
-    peakid <- numeric(length(y))
+      fp <- x1 <- x2 <- numeric(npeaks)
+      peakid <- numeric(length(y))
       for (i in 1:npeaks) {
         fp[i] <- ft[i]
         mp <- match(fp[i], ft)
@@ -24,14 +24,13 @@ function(x, y = NULL, xstart = 0, xmax = max(x),
 
     list(fp=fp, x1=x1, x2=x2, id=peakid)
   }
-  ## start of main algorithm
 
-  # require(pastecs)
+  ## start of main algorithm
   xy <- xy.coords(x, y)
   x <- xy$x
   y <- xy$y
 
-  ## Technical note: xmax =max(x) is a "promise".
+  ## Technical note: xmax = max(x) is a "promise".
   ## It is evaluated *now* with the new x after xy.coords
   iend <- max(c(1, which(x <= xmax)))
   tp   <- turnpoints(y)
