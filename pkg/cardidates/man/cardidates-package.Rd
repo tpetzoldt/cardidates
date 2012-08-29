@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{cardidates-package}
 \alias{cardidates-package}
 \alias{cardidates}
@@ -38,7 +39,7 @@ if you feel that this package should be generalized to other processes.
 }
 \author{
   Susanne Rolinski (original algorithm),
-  Thomas Petzoldt and René Sachse (package and documentation).
+  Thomas Petzoldt and Ren\enc{é}{e} Sachse (package and documentation).
 
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }
