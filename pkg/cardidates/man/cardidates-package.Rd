@@ -14,8 +14,8 @@ mass developments) in ecological time series using fitted Weibull-type functions
 \tabular{ll}{
 Package: \tab cardidate\cr
 Type: \tab Package\cr
-Version: \tab 0.4-1\cr
-Date: \tab 2011-09-17\cr
+Version: \tab 0.4-2\cr
+Date: \tab 2012-08-30\cr
 License: \tab GNU Public License 2 or above\cr
 }
 Phenology and seasonal succession in aquatic ecosystems are strongly 
