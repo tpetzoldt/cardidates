@@ -1,8 +1,8 @@
 Package: cardidates
 Type: Package
 Title: Identification of cardinal dates in ecological time series
-Version: 0.4.2
-Date: 2011-09-17
+Version: 0.4.3
+Date: 2012-12-01
 Depends: R (>= 2.10.0), boot, pastecs
 Suggests: lattice
 LazyLoad: yes
