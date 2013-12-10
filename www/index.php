@@ -75,7 +75,7 @@ step, the fitted functions can be used to identify maximum, beginning
 and end of peaks by using a quantile-like approach.</p>
 
 <p>Examples about the intention and use of the package can be found in the
-<a href="http://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/*checkout*/pkg/cardidates/inst/doc/vignette.pdf?root=cardidates">
+<a href="http://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/*checkout*/pkg/cardidates/vignettes/vignette.pdf?root=cardidates">
   Quickstart Manual</a>.
 
 <p>The methodology may also be useful for other ecological time series
@@ -89,6 +89,13 @@ be generalized to other processes.</p>
   Identification of cardinal dates in phytoplankton time series to
   enable the analysis of long-term trends. Oecologia
   <strong>153</strong>, 997 - 1008.
+
+
+
+  Wagner, A., Hülsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
+  Sachse, R., Schiller, T., Zeis, B., Benndorf, J., Berendonk,
+  T.U. (2012): Marine Biology <strong>159(11)</strong>, 2543-2559, <a
+  href="http://dx.doi.org/10.1007/s00227-012-1934-5">DOI:10.1007/s00227-012-1934-5</a>
 
 <h3>Sourcecode and Downloads</h3>
 
