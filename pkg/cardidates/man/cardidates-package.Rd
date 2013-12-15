@@ -7,15 +7,15 @@
 Identify cardinal dates in ecological time series
 }
 \description{
-The package helps to identify ``cardinal dates'' (begin, time of maximum, end of
+The package aims to identify ``cardinal dates'' (begin, time of maximum, end of
 mass developments) in ecological time series using fitted Weibull-type functions.
 }
 \details{
 \tabular{ll}{
 Package: \tab cardidate\cr
 Type: \tab Package\cr
-Version: \tab 0.4-2\cr
-Date: \tab 2012-08-30\cr
+Version: \tab 0.4-4\cr
+Date: \tab 2013-12-15\cr
 License: \tab GNU Public License 2 or above\cr
 }
 Phenology and seasonal succession in aquatic ecosystems are strongly 
@@ -44,9 +44,16 @@ if you feel that this package should be generalized to other processes.
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }
 \references{
-Rolinski, S., Horn, H., Petzoldt, T., & Paul, L. (2007): Identification of cardinal 
+Rolinski, S., Horn, H., Petzoldt, T. & Paul, L. (2007): Identification of cardinal
 dates in phytoplankton time series to enable the analysis of long-term trends. 
 Oecologia \bold{153}, 997 - 1008. \url{http://dx.doi.org/10.1007/s00442-007-0783-2}.
+
+Wagner, A., H\enc{ü}{ue}lsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
+Sachse, R., Schiller, T., Zeis, B., Benndorf, J. & Berendonk, T. U. (2012):
+A phenomenological approach shows a high coherence of warming patterns in
+dimictic aquatic systems across latitude- Marine Biology \bold{159}(11),
+2543-2559. \url{http://dx.doi.org/10.1007/s00227-012-1934-5}.
+
 }
 \seealso{%\code{\link{dweibull}},
          \code{\link{weibull4}},

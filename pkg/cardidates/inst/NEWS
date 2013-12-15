@@ -1,2 +1,0 @@
-Starting from version 0.4 the dependend variable is consistently
-named 'x' and not 'doy' like in previous versions.
