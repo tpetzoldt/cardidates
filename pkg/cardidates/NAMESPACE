@@ -1,3 +1,5 @@
+import(boot, pastecs)
+
 export(CDW, peakwindow, metaCDW)
 exportPattern(".weibull.*")
 exportPattern("fitweibull.*")
