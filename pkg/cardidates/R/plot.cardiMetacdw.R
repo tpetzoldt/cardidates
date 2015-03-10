@@ -1,5 +1,4 @@
 plot.cardiMetacdw <- function(x, y, type = "lattice", scale = TRUE, col.poly = "black", ...) {
-  if (!require(lattice)) stop("this function requires the lattice package")
   if (is.null(y)) stop("original data must be provided as second argument")
 
   tt  <- x

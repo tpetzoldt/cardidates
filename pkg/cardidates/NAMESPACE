@@ -1,4 +1,4 @@
-import(boot, pastecs)
+import(boot, pastecs, lattice)
 
 export(CDW, peakwindow, metaCDW)
 exportPattern(".weibull.*")
