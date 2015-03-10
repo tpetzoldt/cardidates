@@ -23,6 +23,14 @@
 \title{Quickstart Manual for Package \pkg{cardidates}}
 %\VignetteIndexEntry{cardidates Quickstart Manual}
 
+\Address{
+  Thomas Petzoldt\\
+  Institut f\"ur Hydrobiologie\\
+  Technische Universit\"at Dresden\\
+  01062 Dresden, Germany\\
+  E-mail: \email{thomas.petzoldt@tu-dresden.de}\\
+  URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}
+}
 
 
 \Abstract{ The \pkg{cardidates} package provides methods for identifying peaks and
@@ -74,6 +82,8 @@ The methodology may also be useful for other ecological time series
 hesitate to contact the authors if you feel that this package should
 be generalized to other processes.
 
+\newpage
+
 \section{Pre-requisites}
 
 You need the following software:
@@ -89,9 +99,10 @@ You need the following software:
 > install.packages("cardidates")
 \end{Sinput}
 
-\item \pkg{cardidates} requires two contributed packages named
-  \pkg{boot} and \pkg{pastecs} \citep{boot-package,pastecs-package}
-  which are installed automatically when installing the package
+\item \pkg{cardidates} requires three contributed packages,
+  \pkg{boot} and \pkg{pastecs} and \pkg{lattice}
+  \citep{boot-package,pastecs-package,lattice}
+  that are automatically downloaded when installing the package
   directly from the internet.
 \end{itemize}
 

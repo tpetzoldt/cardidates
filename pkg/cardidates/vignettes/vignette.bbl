@@ -1,0 +1,53 @@
+\begin{thebibliography}{6}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Ibanez and Etienne(2006)}]{pastecs-package}
+Ibanez F, Etienne PGM (2006).
+\newblock \emph{pastecs: Package for Analysis of Space-Time Ecological Series}.
+\newblock R package version 1.3-4,
+  \urlprefix\url{http://www.sciviews.org/pastecs}.
+
+\bibitem[{Petzoldt(1996)}]{Petzoldt1996}
+Petzoldt T (1996).
+\newblock \emph{{M\"oglichkeiten zur Vorhersage von
+  Phytoplanktonmassenentwicklungen: Von der statischen Betrachtungsweise zur
+  Kurzfristprognose.}}
+\newblock Dissertation, TU Dresden, Fakult\"at Forst-, Geo- und
+  Hydrowissenschaften.
+
+\bibitem[{{R Development Core Team}(2007)}]{Rcore2007}
+{R Development Core Team} (2007).
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+\newblock {ISBN} 3-900051-07-0, \urlprefix\url{http://www.R-project.org}.
+
+\bibitem[{Ripley(2007)}]{boot-package}
+Ripley B (2007).
+\newblock \emph{boot: Bootstrap R (S-Plus) Functions (Canty)}.
+\newblock R package version 1.2-30, S original by Angelo Canty, R port by Brian
+  Ripley.
+
+\bibitem[{Rolinski \emph{et~al.}(2007)Rolinski, Horn, Petzoldt, and
+  Paul}]{Rolinski2007}
+Rolinski S, Horn H, Petzoldt T, Paul L (2007).
+\newblock \enquote{Identifying cardinal dates in phytoplankton time series to
+  enable the analysis of long-term trends.}
+\newblock \emph{Oecologia}, \textbf{153}(4), 997 -- 1008.
+\newblock \doi{10.1007/s00442-007-0783-2}.
+
+\bibitem[{Sarkar(2008)}]{lattice}
+Sarkar D (2008).
+\newblock \emph{Lattice: Multivariate Data Visualization with R}.
+\newblock Springer, New York.
+\newblock ISBN 978-0-387-75968-5,
+  \urlprefix\url{http://lmdvr.r-forge.r-project.org}.
+
+\end{thebibliography}
