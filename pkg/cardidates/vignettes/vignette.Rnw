@@ -1,10 +1,10 @@
-\documentclass[11pt]{Z}
+\documentclass[11pt,nojss]{jss}
 
 \SweaveOpts{engine=R,eps=FALSE}
 
 
 %% need no \usepackage{Sweave.sty}
-\DeclareGraphicsExtensions{.pdf, .eps, .png}
+\DeclareGraphicsExtensions{.pdf, .png}
 
 \usepackage{amsmath,amssymb,graphicx,color,fancyvrb}
 \usepackage{textcomp}%has degree celsius
@@ -57,7 +57,7 @@ means that it is not necessarily important to get good estimates for
 one particular time series but to get reproducible results
 independently of the person who performs the analysis.
 
-The proposed methods were developed within the 
+The proposed methods were developed within the
 AQUASHIFT\footnote{\url{http://www.ifm-geomar.de/?id=1985&L=1}} research
 program and used to determine the beginning, maximum and end of the
 spring mass development of phytoplankton in different lakes and water
@@ -87,8 +87,8 @@ You need the following software:
   \proglang{R} archive network:
 \begin{Sinput}
 > install.packages("cardidates")
-\end{Sinput}   
-  
+\end{Sinput}
+
 \item \pkg{cardidates} requires two contributed packages named
   \pkg{boot} and \pkg{pastecs} \citep{boot-package,pastecs-package}
   which are installed automatically when installing the package
@@ -220,7 +220,7 @@ You may inspect this data set as usual, e.g. simply by typing
 example on help page).  Now we invoke the analysis with an important
 optional parameter \texttt{xstart} determining the offset of the main
 peak, e.g.  a value of 55 to neglect winter peaks before the spring
-mass development.  Setting individual values of the optional \code{flag} 
+mass development.  Setting individual values of the optional \code{flag}
 column of the data set manually to FALSE provides another, more individual
 mechanism for this purpose:
 
@@ -369,8 +369,8 @@ y <- exp(cos(x/20)) + 0.3 + rnorm(x, sd = 0.3)
 @
 
 We now apply the \code{peakwindow} function to the x and y data where
-\code{xstart = 60} is an optional value to indicate the start time of the 
-``specific peak'', e.g. the time of ice out after which the phytoplankton 
+\code{xstart = 60} is an optional value to indicate the start time of the
+``specific peak'', e.g. the time of ice out after which the phytoplankton
 spring mass development is expected to begin:
 
 <<>>=
