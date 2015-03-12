@@ -295,15 +295,19 @@ The result of the analysis can be written to an arbitrary textfile
 supplied as optional file argument to \texttt{summary}, e.g.:
 
 \begin{Scode}
-> summary(tt, file = "d:/results.txt", sep = "\t", quote = FALSE, row.names = FALSE)
+> summary(tt, file = "d:/results.txt", sep = "\t",
++    quote = FALSE, row.names = FALSE)
 \end{Scode}
 
 or, to write the results directly to the windows clipboard in a format
 compatible to spreadsheets and with German comma:
 
 \begin{Scode}
-> summary(tt, file = "clipboard", sep = "\t", dec = ",", quote = FALSE, row.names = FALSE)
+> summary(tt, file = "clipboard", sep = "\t", dec = ",",
++   quote = FALSE, row.names = FALSE)
 \end{Scode}
+
+\pagebreak{3}
 
 \section{More options}\label{s:moreopt}
 
