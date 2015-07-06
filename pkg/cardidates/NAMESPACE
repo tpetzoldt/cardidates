@@ -1,4 +1,4 @@
-import(boot, pastecs, lattice)
+import(boot, pastecs, lattice, graphics, grDevices, stats, methods, utils)
 
 export(CDW, peakwindow, metaCDW)
 exportPattern(".weibull.*")
