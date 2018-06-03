@@ -55,11 +55,11 @@ version \Sexpr{installed.packages()["cardidates", 3]}.
 Phenology and seasonal succession in aquatic, and of course also
 terrestrial, ecosystems are strongly dependent on physical factors. In
 order to promote investigations into this coupling, objective and
-reliable methods of characterising annual time series are important.
+reliable methods of characterizing annual time series are important.
 
 The \pkg{cardidates} package provides methods for curve fitting
 ``peaks'' of environmental data and approaches for an ``objective''
-characterisation of what we call ``cardinal dates'', i.e. beginning,
+characterization of what we call ``cardinal dates'', i.e. beginning,
 time of maximum and time of end of an identified peak.  Objectivity
 means that it is not necessarily important to get good estimates for
 one particular time series but to get reproducible results
@@ -90,7 +90,7 @@ You need the following software:
 
 \begin{itemize}
 \item a current version of the statistical data analysis system,
-  \proglang{R}, \citep{Rcore2007} that can be downloaded from
+  \proglang{R}, \citep{Rcore2018} that can be downloaded from
   \url{http://www.r-project.org}.
 \item the \pkg{cardidates} package, which is available as source code
   and as Windows, Macintosh and Linux ``binary'' from CRAN, the comprehensive
@@ -121,7 +121,7 @@ Identification of cardinal dates is carried out in the following way:
 \item Identify the time window of the desired peak if not yet done
   before,
 \item Fit a Weibull-type function with four or six parameters (we
-  recommend the six parameteric as it is much more flexible),
+  recommend the six parametric as it is much more flexible),
 \item Extract cardinal dates with functions \code{CDW} or \code{CDWa}
   or use the default \code{summary} method.
 \item Results can be visualized with standard \proglang{R} functions
@@ -213,7 +213,7 @@ To use it you must supply your data in a defined format, a table
 (technically an \proglang{R} data frame) with four columns:
 \textbf{sample} (description of the individual time series such as
 year, water body, or any other code, should be numeric or factor),
-\textbf{x} (the independend variable, e.g. Julian day of the year),
+\textbf{x} (the independent variable, e.g. Julian day of the year),
 \code{y} (the dependent variable, e.g. phytoplankton biovolume) and
 \code{flag} (of type boolean indicating whether the data point should
 be included in analysis). The last column (flag) can be used to mask
@@ -431,7 +431,7 @@ points(x, y, pch = "+", type = "b")
 @
 
 Cardinal date detection as described above is done with, as we think,
-useful defaults and heuristics. However, it is focussed on year
+useful defaults and heuristics. However, it is focused on year
 courses (x between 0 to 365) and the characteristics of phytoplankton
 time series. The package contains several additional possibilities,
 e.g. the use of the four parametric Weibull function.  Examples of

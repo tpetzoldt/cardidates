@@ -14,9 +14,6 @@
 
 \details{
 
-The DESCRIPTION file:
-\packageDESCRIPTION{cardidates}
-
 Phenology and seasonal succession in aquatic ecosystems are strongly
 dependent on physical factors. In order to promote investigations
 into this coupling, objective and relible methods of characterising
