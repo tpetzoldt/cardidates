@@ -2,7 +2,7 @@ Package: cardidates
 Type: Package
 Title: Identification of Cardinal Dates in Ecological Time Series
 Version: 0.4.8
-Depends: R (>= 3.0.0), boot, pastecs, lattice
+Depends: R (>= 3.2), boot, pastecs, lattice
 Imports: graphics, grDevices, stats, methods, utils
 Encoding: latin1
 Authors@R: c(person("Susanne", "Rolinski", role = "aut"),

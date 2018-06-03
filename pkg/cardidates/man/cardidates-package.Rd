@@ -3,24 +3,23 @@
 \alias{cardidates-package}
 \alias{cardidates}
 \docType{package}
+
 \title{
-Identify cardinal dates in ecological time series
+\packageTitle{cardidates}
 }
+
 \description{
-The package aims to identify ``cardinal dates'' (begin, time of maximum, end of
-mass developments) in ecological time series using fitted Weibull-type functions.
+\packageDescription{cardidates}
 }
+
 \details{
-\tabular{ll}{
-Package: \tab cardidate\cr
-Type: \tab Package\cr
-Version: \tab 0.4-7\cr
-Date: \tab 2015-09-06\cr
-License: \tab GNU Public License 2 or above\cr
-}
-Phenology and seasonal succession in aquatic ecosystems are strongly 
-dependent on physical factors. In order to promote investigations 
-into this coupling, objective and relible methods of characterising 
+
+The DESCRIPTION file:
+\packageDESCRIPTION{cardidates}
+
+Phenology and seasonal succession in aquatic ecosystems are strongly
+dependent on physical factors. In order to promote investigations
+into this coupling, objective and relible methods of characterising
 annual time series are important.
 
 The proposed methods were developed within the AQUASHIFT research program
@@ -29,11 +28,11 @@ and end of the spring mass development of phytoplankton in different lakes
 and water reservoirs. These time points, which we call ``cardinal dates'',
 can be analysed for temporal trends and relationships to climate variables.
 
-The complete methodology is described in Rolinski et. al (2007).  
+The complete methodology is described in Rolinski et. al (2007).
 Until now we implemented only the most reliable approach using Weibull-Functions
 (Method B in the article), other algorithms may follow when required.
 
-The methodology may also be useful for other ecological time series 
+The methodology may also be useful for other ecological time series
 (e.g. small mammals or insects). Please don't hesitate to contact the package maintainer
 if you feel that this package should be generalized to other processes.
 }
@@ -45,14 +44,14 @@ Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }
 \references{
 Rolinski, S., Horn, H., Petzoldt, T. & Paul, L. (2007): Identification of cardinal
-dates in phytoplankton time series to enable the analysis of long-term trends. 
-Oecologia \bold{153}, 997 - 1008. \url{http://dx.doi.org/10.1007/s00442-007-0783-2}.
+dates in phytoplankton time series to enable the analysis of long-term trends.
+Oecologia \bold{153}, 997 - 1008. \doi{10.1007/s00442-007-0783-2}.
 
 Wagner, A., H\enc{ü}{ue}lsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
 Sachse, R., Schiller, T., Zeis, B., Benndorf, J. & Berendonk, T. U. (2012):
 A phenomenological approach shows a high coherence of warming patterns in
 dimictic aquatic systems across latitude- Marine Biology \bold{159}(11),
-2543-2559. \url{http://dx.doi.org/10.1007/s00227-012-1934-5}.
+2543-2559. \doi{10.1007/s00227-012-1934-5}.
 
 }
 \seealso{%\code{\link{dweibull}},
