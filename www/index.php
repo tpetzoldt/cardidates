@@ -65,10 +65,9 @@ reservoirs. These time points, that we call "cardinal dates", can be
 analysed for temporal trends and relationships to climate variables.
 The complete methodology is described in Rolinski, Horn, Petzoldt, and
 Paul (2007). Until now we implemented only the most reliable approach
-using Weibull-functions (Method B in the article); other functions may
-follow.</p>
+using Weibull-functions (Method B in the article).</p>
 
-<p>This method consists of fitting four- resp. six parametric Weibull
+<p>This method consists of fitting four resp. six parametric Weibull
 functions to environmental time series. Heuristics are applied for
 finding initial parameters in the six parametric case. As a second
 step, the fitted functions can be used to identify maximum, beginning
@@ -92,14 +91,14 @@ be generalized to other processes.</p>
 
 
 
-  Wagner, A., Hülsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
+  Wagner, A., H&uuml;lsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
   Sachse, R., Schiller, T., Zeis, B., Benndorf, J., Berendonk,
   T.U. (2012): Marine Biology <strong>159(11)</strong>, 2543-2559, <a
   href="http://dx.doi.org/10.1007/s00227-012-1934-5">DOI:10.1007/s00227-012-1934-5</a>
 
 <h3>Sourcecode and Downloads</h3>
 
-<p> You can download compiled packages for different operation systems
+<p> You can download compiled packages for different operating systems
 (Linux, Mac, Windows) or inspect source code and documentation online
 before downloading.</p>
 
