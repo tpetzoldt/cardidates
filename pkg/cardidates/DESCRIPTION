@@ -1,15 +1,15 @@
 Package: cardidates
 Type: Package
 Title: Identification of Cardinal Dates in Ecological Time Series
-Version: 0.4.8
+Version: 0.4.9
 Depends: R (>= 3.2), boot, pastecs, lattice
 Imports: graphics, grDevices, stats, methods, utils
-Encoding: latin1
+Encoding: UTF-8
 Authors@R: c(person("Susanne", "Rolinski", role = "aut"),
-             person("René", "Sachse", role = "aut"),
+             person("RenÃ©", "Sachse", role = "aut"),
              person("Thomas", "Petzoldt", role = c("aut", "cre"),
                      email = "thomas.petzoldt@tu-dresden.de"))
-Author: Susanne Rolinski [aut], René Sachse [aut], Thomas Petzoldt [aut, cre]
+Author: Susanne Rolinski [aut], RenÃ© Sachse [aut], Thomas Petzoldt [aut, cre]
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 Description: Identification of cardinal dates
              (begin, time of maximum, end of mass developments)

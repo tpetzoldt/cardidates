@@ -66,8 +66,8 @@ one particular time series but to get reproducible results
 independently of the person who performs the analysis.
 
 The proposed methods were developed within the
-AQUASHIFT\footnote{\url{http://www.ifm-geomar.de/?id=1985&L=1}} research
-program and used to determine the beginning, maximum and end of the
+AQUASHIFT research program \citep{Sommer2012}
+and used to determine the beginning, maximum and end of the
 spring mass development of phytoplankton in different lakes and water
 reservoirs.  These time points, that we call ``cardinal dates'', can
 be analysed for temporal trends and relationships to climate
@@ -132,8 +132,8 @@ This process can be done either step by step for single peaks as
 described in section \ref{s:stepbystep} or automatically for a series
 of peaks using the \texttt{metaCDW} function described in section
 \ref{s:metacdw}.  The package is licensed under the GNU Public License
-2.0 or above (\url{http://www.gnu.org/copyleft/gpl.html}).  It can be
-used free of charge within the AQUASHIFT community and by everyone
+2.0 or above (\url{http://www.gnu.org/copyleft/gpl.html}).  It was
+used within the AQUASHIFT community and is available for everyone
 else who is interested.
 
 

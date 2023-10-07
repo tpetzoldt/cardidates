@@ -31,12 +31,12 @@ fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit = 1000)
   especially for plankton blooms.
   Please note that the function does internal transformation:
   \deqn{y_{rel} = y_i / y_{max}}{y_{rel} = y_i / y_{max}}
-  
+
   Note that additional data points are inserted between original measurements
   by linear interpolation with time step = 1 before curve fitting if the number
   of original data points is too low (currently n < 35).
   You can set \code{linint = 0} to switch interpolation off.
-  
+
   \code{fitweibull4} has only built-in heuristics for data interpolation but not
   for guessing initial parameters which must be supplied as
   vector \code{p0} in the call.
@@ -62,7 +62,7 @@ Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 \references{
 Rolinski, S., Horn, H., Petzoldt, T., & Paul, L. (2007): Identification of cardinal
 dates in phytoplankton time series to enable the analysis of long-term trends.
-Oecologia \bold{153}, 997 - 1008. \url{http://dx.doi.org/10.1007/s00442-007-0783-2}.
+Oecologia \bold{153}, 997 - 1008, \doi{10.1007/s00442-007-0783-2}.
 }
 
 \note{Note that the heuristics works optimal if unnecessary leading and trailing

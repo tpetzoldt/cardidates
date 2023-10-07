@@ -9,7 +9,7 @@
    It is intended mainly for internal use.
 }
 \usage{
-fweibull6(x, p)
+fweibull7(x, p)
 
 aweibull7(p, lower = 0, upper = 365)
 }

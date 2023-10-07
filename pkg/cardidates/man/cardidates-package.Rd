@@ -1,8 +1,8 @@
-\encoding{latin1}
 \name{cardidates-package}
 \alias{cardidates-package}
 \alias{cardidates}
 \docType{package}
+\encoding{UTF-8}
 
 \title{
 \packageTitle{cardidates}
@@ -35,7 +35,7 @@ if you feel that this package should be generalized to other processes.
 }
 \author{
   Susanne Rolinski (original algorithm),
-  Thomas Petzoldt and Ren\enc{é}{e} Sachse (package and documentation).
+  Thomas Petzoldt and RenÃ© Sachse (package and documentation).
 
 Maintainer: Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>
 }
@@ -44,11 +44,11 @@ Rolinski, S., Horn, H., Petzoldt, T. & Paul, L. (2007): Identification of cardin
 dates in phytoplankton time series to enable the analysis of long-term trends.
 Oecologia \bold{153}, 997 - 1008. \doi{10.1007/s00442-007-0783-2}.
 
-Wagner, A., H\enc{ü}{ue}lsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
+Wagner, A., HÃ¼lsmann, S., Paul, L., Paul, R. J., Petzoldt, T.,
 Sachse, R., Schiller, T., Zeis, B., Benndorf, J. & Berendonk, T. U. (2012):
 A phenomenological approach shows a high coherence of warming patterns in
-dimictic aquatic systems across latitude- Marine Biology \bold{159}(11),
-2543-2559. \doi{10.1007/s00227-012-1934-5}.
+dimictic aquatic systems across latitude. Marine Biology \bold{159}(11),
+2543-2559, \doi{10.1007/s00227-012-1934-5}.
 
 }
 \seealso{%\code{\link{dweibull}},
