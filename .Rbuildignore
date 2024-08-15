@@ -1,4 +1,5 @@
-.github
+^.github$
+^.devcontainer
 Dockerfile
 vignettes/jss.cls
 vignettes/jss.bst
