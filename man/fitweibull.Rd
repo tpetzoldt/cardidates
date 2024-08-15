@@ -46,13 +46,10 @@ fitweibull4(x, y = NULL, p0 = c(0.1, 50, 5, 100), linint = -1, maxit = 1000)
   \item{p}{vector of fitted parameters,}
   \item{ymax}{maximum y value used for transformation,}
   \item{r2}{coefficient of determination between transformed and fitted y values,}
-  \item{fit}{data frame with the following columns:
-    \describe{
-      \item{x}{data (original or interpolated) used for curve fitting,}
-      \item{y}{data (transformed-original or interpolated) used for curve fitting,}
-      \item{f}{estimated function values.}
-    }
-  }
+  \item{fit}{data frame with the following columns:}
+  \item{  x}{data (original or interpolated) used for curve fitting,}
+  \item{  y}{data (transformed-original or interpolated) used for curve fitting,}
+  \item{  f}{estimated function values.}
 }
 \author{
 Susanne Rolinski (original algorithm) and Thomas Petzoldt (package).
